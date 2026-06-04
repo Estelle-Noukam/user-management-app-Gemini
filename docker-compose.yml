@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: user_db
+    restart: always
+    environment:
+      POSTGRES_USER: mgmt_user
+      POSTGRES_PASSWORD: mgmt_password
+      POSTGRES_DB: mgmt_system
+    ports:
+      - "5434:5432"
+    volumes:
+      - pgdata_mgmt:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: user_backend
+    restart: always
+    ports:
+      - "5001:5001"
+    environment:
+      - NODE_ENV=production
+      - PORT=5001
+      - DB_HOST=db
+      - DB_USER=mgmt_user
+      - DB_PASSWORD=mgmt_password
+      - DB_NAME=mgmt_system
+      - DB_PORT=5432
+      - JWT_SECRET=mgmt_secret_key_456789
+    depends_on:
+      - db
+
+  frontend:
+    build: ./frontend
+    container_name: user_frontend
+    restart: always
+    ports:
+      - "3001:80"
+    depends_on:
+      - backend
+
+volumes:
+  pgdata_mgmt:
