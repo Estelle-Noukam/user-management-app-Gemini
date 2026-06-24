@@ -20,11 +20,11 @@ PostgreSQL (Schéma d'identité dédié)
 Nginx & Docker
 
 Bash
-# #Installation & Docker
+## Installation & Docker
 cd user-management-app-Gemini
 sudo docker compose up --build
 
-# # Spécificités et Configuration Réseau
+## Spécificités et Configuration Réseau
 🌐 Accès Web Principal   : http://localhost:3003
 ⚙️ Port Frontend (Nginx) : 3003 -> Panel d'administration IAM dédié
 ⚡ Port Backend (API)     : Validation des jetons et gestion de l'annuaire en interne
