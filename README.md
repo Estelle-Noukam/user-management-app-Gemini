@@ -25,7 +25,7 @@ cd user-management-app-Gemini
 sudo docker compose up --build
 
 # # Spécificités et Configuration Réseau
-# 🌐 Accès Web Principal   : http://localhost:3003
-# ⚙️ Port Frontend (Nginx) : 3003 -> Panel d'administration IAM dédié
-# ⚡ Port Backend (API)     : Validation des jetons et gestion de l'annuaire en interne
-# 🐘 Base de données       : PostgreSQL configuré sur le port réseau externe 5435
+🌐 Accès Web Principal   : http://localhost:3003
+⚙️ Port Frontend (Nginx) : 3003 -> Panel d'administration IAM dédié
+⚡ Port Backend (API)     : Validation des jetons et gestion de l'annuaire en interne
+🐘 Base de données       : PostgreSQL configuré sur le port réseau externe 5435
